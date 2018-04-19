@@ -31,7 +31,7 @@ get post put delete
 - controllers
   > estos si siempre estaran uno por pagina generalmente se forman muchos archivos pero si se diseña bien deberian estar bien. Pero esto pasa generalmente con un sistema grande siempre se desordena un poco contenido pero es mejor corregirlo antes de este muy caotico.
 - directives
-  > directivas no se muy bien como usarlos.
+  > directivas vamos a usar las que ya existen y  nos la crearemos unas por nuestra propia cuenta me imagiuno un plugin seudo word en html.
 - filters
   > filtros de la aplicacion estos es a los datos no se usan mucho pero tratare de aplicarlo.
 - services  
