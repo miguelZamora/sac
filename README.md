@@ -1,4 +1,14 @@
-sac
-===
+Api RestFull Angular JS
 
-sistema de administración curricular
+
+
+Angular JS  : inteface de aplicativo
+Api RestFull: servicios y datos 
+
+
+
+
+
+
+
+
