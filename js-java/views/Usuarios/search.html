@@ -1,0 +1,113 @@
+<div class="form-horizontal">
+    <h3>Create a new Usuarios</h3>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Usuarios/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>Search for Usuarios</h3>
+    <form id="UsuariosSearch" class="form-horizontal">
+        
+    <div class="form-group">
+        <label for="userLogin" class="col-sm-2 control-label">User Login</label>
+        <div class="col-sm-10">
+            <input id="userLogin" name="userLogin" class="form-control" type="text" ng-model="search.userLogin" placeholder="Enter the Usuarios User Login"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="userPass" class="col-sm-2 control-label">User Pass</label>
+        <div class="col-sm-10">
+            <input id="userPass" name="userPass" class="form-control" type="text" ng-model="search.userPass" placeholder="Enter the Usuarios User Pass"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="userNicename" class="col-sm-2 control-label">User Nicename</label>
+        <div class="col-sm-10">
+            <input id="userNicename" name="userNicename" class="form-control" type="text" ng-model="search.userNicename" placeholder="Enter the Usuarios User Nicename"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="userEmail" class="col-sm-2 control-label">User Email</label>
+        <div class="col-sm-10">
+            <input id="userEmail" name="userEmail" class="form-control" type="text" ng-model="search.userEmail" placeholder="Enter the Usuarios User Email"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="userUrl" class="col-sm-2 control-label">User Url</label>
+        <div class="col-sm-10">
+            <input id="userUrl" name="userUrl" class="form-control" type="text" ng-model="search.userUrl" placeholder="Enter the Usuarios User Url"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="displayName" class="col-sm-2 control-label">Display Name</label>
+        <div class="col-sm-10">
+            <input id="displayName" name="displayName" class="form-control" type="text" ng-model="search.displayName" placeholder="Enter the Usuarios Display Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="userStatus" class="col-sm-2 control-label">User Status</label>
+        <div class="col-sm-10">
+            <select id="userStatus" name="userStatus" class="form-control" ng-model="search.userStatus" ng-options="u as u for u in userStatusList">
+                <option value="">Choose a User Status</option>
+            </select>
+        </div>
+    </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="search-results">
+        <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>User Login</th>
+                    <th>User Pass</th>
+                    <th>User Nicename</th>
+                    <th>User Email</th>
+                    <th>User Url</th>
+                    <th>Display Name</th>
+                    <th>User Status</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Usuarios/edit/{{result.id}}">{{result.userLogin}}</a></td>
+                    <td><a href="#/Usuarios/edit/{{result.id}}">{{result.userPass}}</a></td>
+                    <td><a href="#/Usuarios/edit/{{result.id}}">{{result.userNicename}}</a></td>
+                    <td><a href="#/Usuarios/edit/{{result.id}}">{{result.userEmail}}</a></td>
+                    <td><a href="#/Usuarios/edit/{{result.id}}">{{result.userUrl}}</a></td>
+                    <td><a href="#/Usuarios/edit/{{result.id}}">{{result.displayName}}</a></td>
+                    <td><a href="#/Usuarios/edit/{{result.id}}">{{result.userStatus}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
+
+</div>

@@ -1,0 +1,75 @@
+<header ng-switch on="$location.path().indexOf('/Usuarios/new') > -1">
+    <h3 ng-switch-when="true">Create a new Usuarios</h3>
+    <h3 ng-switch-when="false">View or edit Usuarios</h3>
+</header>
+<form id="UsuariosForm" name="UsuariosForm" class="form-horizontal" role="form">
+    
+    <div class="form-group" ng-class="{'has-error': UsuariosForm.userLogin.$invalid}">
+        <label for="userLogin" class="col-sm-2 control-label">User Login</label>
+        <div id="userLoginControls" class="col-sm-10">
+            <input id="userLogin" name="userLogin" type="text" required ng-maxlength="60" class="form-control" ng-model="usuarios.userLogin" placeholder="Enter the Usuarios User Login"></input>
+            <span class="help-block error" ng-show="UsuariosForm.userLogin.$error.required">required</span> 
+            <span class="help-block error" ng-show="UsuariosForm.userLogin.$error.maxlength">maximum length is 60</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': UsuariosForm.userPass.$invalid}">
+        <label for="userPass" class="col-sm-2 control-label">User Pass</label>
+        <div id="userPassControls" class="col-sm-10">
+            <input id="userPass" name="userPass" type="text" required class="form-control" ng-model="usuarios.userPass" placeholder="Enter the Usuarios User Pass"></input>
+            <span class="help-block error" ng-show="UsuariosForm.userPass.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': UsuariosForm.userNicename.$invalid}">
+        <label for="userNicename" class="col-sm-2 control-label">User Nicename</label>
+        <div id="userNicenameControls" class="col-sm-10">
+            <input id="userNicename" name="userNicename" type="text" required ng-maxlength="50" class="form-control" ng-model="usuarios.userNicename" placeholder="Enter the Usuarios User Nicename"></input>
+            <span class="help-block error" ng-show="UsuariosForm.userNicename.$error.required">required</span> 
+            <span class="help-block error" ng-show="UsuariosForm.userNicename.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': UsuariosForm.userEmail.$invalid}">
+        <label for="userEmail" class="col-sm-2 control-label">User Email</label>
+        <div id="userEmailControls" class="col-sm-10">
+            <input id="userEmail" name="userEmail" type="text" required ng-maxlength="100" class="form-control" ng-model="usuarios.userEmail" placeholder="Enter the Usuarios User Email"></input>
+            <span class="help-block error" ng-show="UsuariosForm.userEmail.$error.required">required</span> 
+            <span class="help-block error" ng-show="UsuariosForm.userEmail.$error.maxlength">maximum length is 100</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': UsuariosForm.userUrl.$invalid}">
+        <label for="userUrl" class="col-sm-2 control-label">User Url</label>
+        <div id="userUrlControls" class="col-sm-10">
+            <input id="userUrl" name="userUrl" type="text" required ng-maxlength="100" class="form-control" ng-model="usuarios.userUrl" placeholder="Enter the Usuarios User Url"></input>
+            <span class="help-block error" ng-show="UsuariosForm.userUrl.$error.required">required</span> 
+            <span class="help-block error" ng-show="UsuariosForm.userUrl.$error.maxlength">maximum length is 100</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': UsuariosForm.displayName.$invalid}">
+        <label for="displayName" class="col-sm-2 control-label">Display Name</label>
+        <div id="displayNameControls" class="col-sm-10">
+            <input id="displayName" name="displayName" type="text" required ng-maxlength="250" class="form-control" ng-model="usuarios.displayName" placeholder="Enter the Usuarios Display Name"></input>
+            <span class="help-block error" ng-show="UsuariosForm.displayName.$error.required">required</span> 
+            <span class="help-block error" ng-show="UsuariosForm.displayName.$error.maxlength">maximum length is 250</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': UsuariosForm.userStatus.$invalid}">
+        <label for="userStatus" class="col-sm-2 control-label">User Status</label>
+        <div id="userStatusControls" class="col-sm-10">
+            <input id="userStatus" name="userStatus" type="checkbox" class="checkbox" ng-model="usuarios.userStatus" placeholder="Enter the Usuarios User Status"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveUsuarios" name="saveUsuarios" class="btn btn-primary" ng-disabled="isClean() || UsuariosForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteUsuarios" name="deleteUsuarios" class="btn btn-danger" ng-show="usuarios.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

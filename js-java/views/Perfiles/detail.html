@@ -1,0 +1,206 @@
+<fieldset class="fsStyle">
+<legend class="legendStyle">Administraci&oacute;n de Perfiles</legend>
+    <div>
+        <div ng-switch on="$location.path().indexOf('/Perfiles/') > -1">
+            <div ng-switch-when="false">
+                    <h2>Editar Entidad Externa</h2>
+            </div>
+            <div ng-switch-when="true">
+                <h2>Crear Entidad Externa</h2>
+            </div>
+        </div>
+
+    
+    <form id="perfForm" name="EntExtForm" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="labelId" class="col-sm-2 control-label">ID:</label>
+            <div id="idusuarios_gestordoc" class="col-sm-10" style="padding-top: 7px;">
+                <input  type="text" 
+                        class="form-control" 
+                        value="{{$scope.perf.idusuarios_gestordoc}}" 
+                        disabled 
+                        placeholder="ID"></input>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': EntExtForm.url.$invalid}">
+            <label for="entextDes" class="col-sm-2 control-label">URL:</label>
+            <div id="entextDesControls" class="col-sm-10" style="padding-top: 7px;" >
+                <input  type="text" 
+                        name="url" 
+                        id="url" 
+                        value="{{entext.entExturl}}" 
+                        class="form-control" 
+                        ng-model="entext.entExturl" 
+                        placeholder="Url" 
+                        required  ></input>
+            </div>
+        </div>
+  <!--        
+        <div class="form-group" ng-class="{'has-error': EntExtForm.nomEntExt.$invalid}">
+            <label for="entextNom" class="col-sm-2 control-label">Nombre:</label>
+            <div id="entextNomControls" class="col-sm-10" style="padding-top: 7px;" >
+                <input  type="text" 
+                        name="nomperf" 
+                        id="nomEntExt" 
+                        value="{{perf.nombre}}" 
+                        class="form-control" 
+                        ng-model="entext.entExtnom" 
+                        placeholder="Nombre Entidad" 
+                        required ></input>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': EntExtForm.descEntExt.$invalid}">
+            <label for="entextDes" class="col-sm-2 control-label">Descripci&oacute;n:</label>
+            <div id="entextDesControls" class="col-sm-10" style="padding-top: 7px;" >
+                <input  type="text" 
+                        name="descEntExt" 
+                        id="descEntExt" 
+                        value="{{entext.entExtdes}}" 
+                        class="form-control" 
+                        ng-model="entext.entExtdes" 
+                        placeholder="Descripcion" 
+                        required ></input>
+            </div>
+        </div>
+        
+        <div class="form-group" ng-class="{'has-error': EntExtForm.fnentExt.$invalid}">
+            <label for="entextDes" class="col-sm-2 control-label">Nombre de Funci&oacute;n:</label>
+            <div id="entextDesControls" class="col-sm-10" style="padding-top: 7px;">
+                <input  type="text" 
+                        name="fnentExt" 
+                        id="fnentExt" 
+                        value="{{entext.entExtfun}}" 
+                        class="form-control" 
+                        ng-model="entext.entExtfun" 
+                        placeholder="Nombre de Funci&oacute;n:" 
+                        required ></input>
+            </div>
+        </div>
+
+
+        <div class="form-group" ng-class="{'has-error': EntExtForm.varreg.$invalid}">
+            <label for="entextDes" class="col-sm-2 control-label">Nombre Variable Env&iacute;o:</label>
+            <div id="entextDesControls" class="col-sm-10" style="padding-top: 7px;">
+                <input  type="text" 
+                        name="varreg" 
+                        id="varreg" 
+                        value="{{entext.entExtvarreg}}" 
+                        class="form-control" 
+                        ng-model="entext.entExtvarreg" 
+                        placeholder="Nombre Variable Env&iacute;o:" 
+                        required  ></input>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': EntExtForm.varxml.$invalid}">
+            <label for="entextDes" class="col-sm-2 control-label">Nombre Variable XML:</label>
+            <div id="entextDesControls" class="col-sm-10" style="padding-top: 7px;" >
+                <input  type="text" 
+                        name="varxml" 
+                        id="varxml" 
+                        value="{{entext.entExtvarxml}}" 
+                        class="form-control" 
+                        ng-model="entext.entExtvarxml" 
+                        placeholder="Variable XML" 
+                        required  ></input>             
+            </div>
+        </div>
+       <div class="form-group" ng-class="{'has-error': EntExtForm.ipEntExt.$invalid}">
+            <label for="labelvalInfo" class="col-sm-2 control-label">Nombre Variable Informaci&oacute;n:</label>
+            <div id="entExtvalinf" class="col-sm-10" style="padding-top: 7px;" >
+                <input  type="text"
+                        name="ipEntExt" 
+                        id="ipEntExt" 
+                        value="{{entext.entExtvalinf}}" 
+                        class="form-control" 
+                        ng-model="entext.entExtvalinf" 
+                        placeholder="Variable Informaci&oacute;n" 
+                        ></input>
+            </div>
+        </div>
+
+    
+                
+                
+        <div class="form-group" ng-class="{'has-error': EntExtForm.nsSpa.$invalid}">
+            <label for="entextDes" class="col-sm-2 control-label">NS: NameSpace:</label>
+            <div id="entextDesControls" class="col-sm-10" style="padding-top: 7px;" >
+                <input  type="text" 
+                        name="nsSpa" 
+                        id="nsSpa" 
+                        value="{{entext.entExttarnamspa}}" 
+                        class="form-control" 
+                        ng-model="entext.entExttarnamspa" 
+                        placeholder="NS: NameSpace:"></input>
+            </div>
+        </div>  
+  
+  
+
+        <div class="form-group" ng-class="{'has-error': EntExtForm.varretres.$invalid}">
+            <label for="entextDes" class="col-sm-2 control-label">Nombre Variable Retorno:</label>
+            <div id="entextDesControls" class="col-sm-10" style="padding-top: 7px;">
+                <input  type="text" 
+                        name="varretres" 
+                        id="varretres" 
+                        value="{{entext.entExtvarretres}}" 
+                        class="form-control" 
+                        ng-model="entext.entExtvarretres" 
+                        placeholder="Variables ret. res." 
+                        required  ></input>
+
+            </div>
+        </div> 
+    
+
+        <div class="form-group" ng-class="{'has-error': EntExtForm.msgHtml.$invalid}">
+            <label for="entextDes" class="col-sm-2 control-label">Mensaje de Bienvenida:</label>
+            <div id="entextDesControls" class="col-sm-10" style="padding-top: 7px;" >
+                <textarea  
+                        name="msgHtml" 
+                        id="msgHtml" 
+                        class="form-control" 
+                        ng-model="entext.entExthtml" 
+                        rows="4" 
+                        cols="50"
+                        placeholder="Mensaje descriptivo" 
+                        >{{entext.entExthtml}}</textarea >
+            </div>
+        </div>
+  
+-->
+
+    </form>
+</div>
+</fieldset>
+
+
+<div class="form-horizontal ng-scope">
+    <div class="btn-group col-md-12 text-right">
+        <div class="span2">
+            <button     id="saveEntExt" 
+                        name="saveEntExt" 
+                        class="btn btn-primary" 
+                        ng-disabled="EntExtForm.$invalid" 
+                        ng-click="save()">
+                <span class="glyphicon glyphicon-ok-sign"></span> 
+                Guardar
+            </button>
+            
+            <button     id="cancel" 
+                        name="cancel" 
+                        class="btn btn-default" 
+                        ng-click="cancel()">
+                <span   class="glyphicon glyphicon-remove-sign"></span> 
+                Cancelar
+            </button>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
