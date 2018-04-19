@@ -26,16 +26,15 @@ get post put delete
      > todo en intranet.
 
 **Organizacion**
+
 - controllers
- > estos si siempre estaran uno por pagina generalmente se forman muchos archivos pero si 
- > se diseña bien deberian estar bien. Pero esto pasa generalmente con un sistema grande 
- > siempre se desordena un poco contenido pero es mejor corregirlo antes de este muy caotico
+ > estos si siempre estaran uno por pagina generalmente se forman muchos archivos pero si se diseña bien deberian estar bien. Pero esto pasa generalmente con un sistema grande siempre se desordena un poco contenido pero es mejor corregirlo antes de este muy caotico.
 - directives
-  > directivas no se muy bien como usarlos
+  > directivas no se muy bien como usarlos.
 - filters
-  > filtros de la aplicacion estos es a los datos no se usan mucho pero tratare de aplicarlo
+  > filtros de la aplicacion estos es a los datos no se usan mucho pero tratare de aplicarlo.
 - services  
-  > la factoria de servicios web a través de factory
+  > la factoria de servicios web a través de factory.
 
 
 
